@@ -25,3 +25,4 @@ Nome: Lucas Bovolini
 - Intel. Intel® Core™ i5-3317U Processor 
 (3M Cache, up to 2.60 GHz). http://ark.intel.com/pt-br/products/65707/Intel-Core-i5-3317U-Processor-3M-Cache-up-to-2_60-GHz
 - Asus. S46CB. https://www.asus.com/br/Notebooks/S46CB/
+- Communities Intel. What is Direct Media Interface (DMI)?. https://communities.intel.com/thread/13051?start=0&tstart=0
