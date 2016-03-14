@@ -27,3 +27,4 @@ Nome: Lucas Bovolini
 - Asus. S46CB. https://www.asus.com/br/Notebooks/S46CB/
 - Communities Intel. What is Direct Media Interface (DMI)?. https://communities.intel.com/thread/13051?start=0&tstart=0
 - Wikipedia. Intel QuickPath Interconnect. https://en.wikipedia.org/wiki/Intel_QuickPath_Interconnect
+- Hardware Secrets. Everything You Need to Know About The QuickPath Interconnect (QPI). http://www.hardwaresecrets.com/everything-you-need-to-know-about-the-quickpath-interconnect-qpi/
