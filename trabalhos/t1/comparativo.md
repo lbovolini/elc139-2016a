@@ -15,7 +15,7 @@ Nome: Lucas Bovolini
 | Fabricante e modelo do(s) processador(es)                 | Intel Xeon E5-2680v3                      | Intel Core i5-3317U                |
 | Frequência do(s) processador(es)                          | 2.5 GHz ~ 3.3 GHz                      | 1.7 GHz ~ 2.6 GHz                |
 | Memória total                                             | 36,864 GB                      |  6 GB               |
-| Tipo(s) de interconexão entre os núcleos/processadores    | Infiniband FDR                      | Direct Media Interface (DMI 2.0)                |
+| Tipo(s) de interconexão entre os núcleos/processadores    | Infiniband FDR e Intel QuickPath Interconnect (QPI)                     | Direct Media Interface (DMI 2.0)                |
 | Desempenho Linpack                                        | 777.4 TFlop/s                      |  17.9 GFlop/s              |
 
 ### Referências
@@ -26,3 +26,4 @@ Nome: Lucas Bovolini
 (3M Cache, up to 2.60 GHz). http://ark.intel.com/pt-br/products/65707/Intel-Core-i5-3317U-Processor-3M-Cache-up-to-2_60-GHz
 - Asus. S46CB. https://www.asus.com/br/Notebooks/S46CB/
 - Communities Intel. What is Direct Media Interface (DMI)?. https://communities.intel.com/thread/13051?start=0&tstart=0
+- Wikipedia. Intel QuickPath Interconnect. https://en.wikipedia.org/wiki/Intel_QuickPath_Interconnect
