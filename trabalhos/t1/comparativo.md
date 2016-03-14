@@ -10,7 +10,7 @@ Nome: Lucas Bovolini
 | Nome/Título                                               | SEKIREI-ACC                      | Asus S46CB                |
 | Imagem (foto, diagrama, screenshot, etc.)                 | <img src="http://ep.yimg.com/ay/yhst-10634168652522/4xg0f28796-lenovo-intel-xeon-e5-2680-v3-2-5ghz-30mb-cache-12-core-processor-6.png" height="250" width="250"> |  <img src="https://www.asus.com/media/global/products/4NCrBoVHxzty7brJ/P_500.jpg" height="250" width="250"> |
 | Classificação de Flynn                                    | MIMD                      | MIMD                |
-| Memória: compartilhada, distribuída ou ambas?             | Distribuída                     |  Compartilhada               |
+| Memória: compartilhada, distribuída ou ambas?             | Ambas                     |  Compartilhada               |
 | Número total de núcleos de processamento                  | 15,552                       |  2               |
 | Fabricante e modelo do(s) processador(es)                 | Intel Xeon E5-2680v3                      | Intel Core i5-3317U                |
 | Frequência do(s) processador(es)                          | 2.5 GHz ~ 3.3 GHz                      | 1.7 GHz ~ 2.6 GHz                |
