@@ -7,7 +7,6 @@ Nome: Lucas Bovolini
 
 | Característica                                            | Computador no TOP500  | Meu computador  |
 | --------------------------------------------------------- | --------------------- | --------------- |
-
 | Nome/Título                                               | SEKIREI-ACC                      | Asus S46CB                |
 | Imagem (foto, diagrama, screenshot, etc.)                 | <img src="http://ep.yimg.com/ay/yhst-10634168652522/4xg0f28796-lenovo-intel-xeon-e5-2680-v3-2-5ghz-30mb-cache-12-core-processor-6.png" height="250" width="250"> |  <img src="https://www.asus.com/media/global/products/4NCrBoVHxzty7brJ/P_500.jpg" height="250" width="250"> |
 | Classificação de Flynn                                    | MIMD                      | MIMD                |
