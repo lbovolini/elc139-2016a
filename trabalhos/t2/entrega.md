@@ -1,4 +1,4 @@
-
+[Programação Paralela](https://github.com/AndreaInfUFSM/elc139-2016a) > T2
 
 # T2: Experiências com Profilers
 
@@ -27,7 +27,7 @@
 
 - (a) É de fácil instalação pois está disponível no repositório extra do Arch Linux, a sua saída pode ser visializada através do KCachegrind permitindo uma melhor visualização dos resultados obtidos. Callgrind registra a contagem de instruções , e não o tempo real gasto em uma função. Se você tem um programa onde o gargalo é o arquivo I/O, os custos associados com arquivos de leitura e escrita não irão aparecer no perfil, assim como os que não são tarefas de uso intensivo da CPU.
 
-- (b) A função "multiplicar_matrizes" é a que consome praticamente todo o tempo da execução para todas as entradas. Esta função poderia ser paralizada pelo fato de executar muitas instruções na CPU.
+- (b) A função "multiplicar_matrizes" é a que consome praticamente todo o tempo da execução para todas as entradas. Esta função poderia ser paralizada pelo fato de consumir quase todo o tempo da execução total.
 
 ![callgrind-mat_mul-1000-01](https://cloud.githubusercontent.com/assets/7422061/14092725/60ca581c-f51f-11e5-856d-3d8cfcb8c654.png)
 
@@ -40,11 +40,7 @@
 
 
 ### Referências
-
 - The Geek Stuff. GPROF Tutorial – How to use Linux GNU GCC Profiling Tool. http://www.thegeekstuff.com/2012/08/gprof-tutorial/
-
 - Wikipedia. List of performance analysis tools. https://en.wikipedia.org/wiki/List_of_performance_analysis_tools#General_purpose.2C_language_independent
-
 - Stanford University. Guide to callgrind. https://web.stanford.edu/class/cs107/guide_callgrind.html
-
 - Gernot Klingler. gprof, Valgrind and gperftools – an evaluation of some tools for application level CPU profiling on Linux. http://gernotklingler.com/blog/gprof-valgrind-gperftools-evaluation-tools-application-level-cpu-profiling-linux/
