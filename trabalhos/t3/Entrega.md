@@ -19,20 +19,24 @@ Particionamento:
 Mapeamento:
 	A função dotprod_threads() cria as 4 threads e distribui a execução do produto escalar em 4 threads onde a thread 0 irá calcular o produto escalar das primeiras 100 posições dos vetores.
 
-Aglomeração e Comunicação:
+Aglomeração:
+	A aglomeração consiste no agrupamento de várias multiplicações e somas realizadas por cada thread.
+
+Comunicação:
 
    //pthread_mutex_lock (&mutexsum);
    dotdata.c += mysum;
    //pthread_mutex_unlock (&mutexsum);
 
-Cada thread realiza a aglomeração dos resultados do produto escalar parciais, obtidos por cada thread, por meio da soma destes na variável c.
+Cada thread realiza a soma dos resultados parciais do produto escalar obtidos por cada thread na variável c.
 
 
 2. 1,836 com 2 theads e 2,106 com 4 threads.
 
-3. Há uma pequena variação no speedup, em geral manten-se o mesmo speedup.
+3. Há uma pequena variação no speedup, em geral mantém-se o mesmo speedup.
 
-4. 
+4. Todos os testes foram executados quatro vezes, os resultados correspondem à média, em um processador com 2 núcleos e 4 threads.
+
 	1 1000000 2000 => 7262762us - 72,6s
 	2 500000  2000 => 3900462us - 39s - 1,86
 	4 250000  2000 => 3409511us - 34s - 2,13
