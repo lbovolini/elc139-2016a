@@ -1,3 +1,4 @@
+#include <omp.h>
 #include <iostream>
 #include <cstdlib>
 #include <sys/time.h>
@@ -26,14 +27,19 @@ Floyd::calculate(Graph& s, const Graph& g)
    int n;
    int w;
    
+   int k = 0;
+   int i = 0;
+   int j = 0;
+
    s = g;
    n = s.size();
-   
-   for (int k = 0; k < n; k++)
+
+   for (k = 0; k < n; k++)
    {
-      for (int i = 0; i < n; i++)
+      #pragma omp parallel for private(w, i, j) schedule(dynamic, 1)
+      for (i = 0; i < n; i++)
       {
-         for (int j = 0; j < n; j++)
+         for (j = 0; j < n; j++)
          {
             if ((i != j) && s.hasEdge(i,k) && s.hasEdge(k,j))
             {
@@ -97,9 +103,9 @@ int main(int argc, char** argv)
       // Alternativamente:
       // std::cout << DotGraphEncoder(og) << std::endl;
       // ou
-      // og.writeTo("saida");         
+      // og.writeTo("saida");  
 
-      std::cout << "Tempo de calculo = %ld usec\n" << (long) (end_time - start_time) << std::endl;   
+      std::cout << "Tempo de calculo = %ld usec\n" << (long) (end_time - start_time) << std::endl;       
    }
    catch (std::bad_alloc)
    {  
@@ -109,3 +115,5 @@ int main(int argc, char** argv)
    
    return 0;
 }
+
+

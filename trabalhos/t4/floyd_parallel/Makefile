@@ -1,8 +1,8 @@
 CXX=g++
 #CXXFLAGS=-Wall -I. -O2 -DNDEBUG
-CXXFLAGS=-Wall -I.
-OBJS=Graph.o floyd_seq.o
-PROGS=floyd_seq
+CXXFLAGS=-Wall -I. -fopenmp
+OBJS=Graph.o floyd_parallel.o
+PROGS=floyd_parallel
 floyd_seq: $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 all: $(PROGS)
