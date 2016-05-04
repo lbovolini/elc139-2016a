@@ -48,6 +48,9 @@ int prime_v1(int n)
   int prime;
   int total = 0;
 
+  #pragma omp parallel private(i, j, prime) shared (n, total)
+
+  #pragma omp for schedule(dynamic, 1) 
   for (i = 2; i <= n; i++)
   {
     prime = 1;
@@ -59,6 +62,7 @@ int prime_v1(int n)
         break;
       }
     }
+    #pragma omp critical
     total = total + prime;
   }
   return total;
@@ -73,6 +77,9 @@ int prime_v2(int n)
   int prime;
   int total = 0;
 
+  #pragma omp parallel private(i, j, prime) shared (n)
+
+  #pragma omp for reduction ( + : total ) schedule(dynamic, 1) 
   for (i = 2; i <= n; i++)
   {
     prime = 1;
@@ -98,6 +105,9 @@ int prime_v3(int n)
   int prime;
   int total = 0;
 
+  #pragma omp parallel private(i, j, prime) shared (n, total)
+
+  #pragma omp for schedule(dynamic, 1) 
   for (i = 2; i <= n; i++)
   {
     prime = 1;
@@ -109,6 +119,7 @@ int prime_v3(int n)
         break;
       }
     }
+    #pragma omp atomic 
     total = total + prime;
   }
   return total;

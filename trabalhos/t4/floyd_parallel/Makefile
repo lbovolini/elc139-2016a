@@ -3,7 +3,7 @@ CXX=g++
 CXXFLAGS=-Wall -I. -fopenmp
 OBJS=Graph.o floyd_parallel.o
 PROGS=floyd_parallel
-floyd_seq: $(OBJS)
+floyd_parallel: $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 all: $(PROGS)
 clean:

@@ -99,7 +99,7 @@ int main(int argc, char** argv)
       // ou
       // og.writeTo("saida");         
 
-      std::cout << "Tempo de calculo = %ld usec\n" << (long) (end_time - start_time) << std::endl;   
+      std::cout << "Tempo de calculo = " << (long) (end_time - start_time) << "s" << std::endl;   
    }
    catch (std::bad_alloc)
    {  

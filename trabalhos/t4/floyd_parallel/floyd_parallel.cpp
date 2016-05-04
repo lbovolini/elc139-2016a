@@ -1,4 +1,3 @@
-#include <omp.h>
 #include <iostream>
 #include <cstdlib>
 #include <sys/time.h>
@@ -36,7 +35,7 @@ Floyd::calculate(Graph& s, const Graph& g)
 
    for (k = 0; k < n; k++)
    {
-      #pragma omp parallel for private(w, i, j) schedule(dynamic, 1)
+      #pragma omp parallel for private(i, j, w) shared(n, s) schedule(dynamic, 1)
       for (i = 0; i < n; i++)
       {
          for (j = 0; j < n; j++)
@@ -105,7 +104,7 @@ int main(int argc, char** argv)
       // ou
       // og.writeTo("saida");  
 
-      std::cout << "Tempo de calculo = %ld usec\n" << (long) (end_time - start_time) << std::endl;       
+      std::cout << "Tempo de calculo = " << (long) (end_time - start_time) << std::endl;       
    }
    catch (std::bad_alloc)
    {  
