@@ -105,65 +105,65 @@ Scene *create(int level, const Vec &c, double r) {
 //!TODO
 int main(int argc, char *argv[]) 
 {
-	int rank, size;
-	int tag = 1;
-	int dest = 0;
+  int rank, size;
+  int tag = 1;
+  int dest = 0;
   int level = 6, n = 512, ss = 4;
   char buff[n * n];
 
   if (argc == 2) level = atoi(argv[1]);
 
-	MPI_Init(&argc, &argv);
+  MPI_Init(&argc, &argv);
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   MPI_Comm_size(MPI_COMM_WORLD, &size);
   
-	MPI_Status status;
+  MPI_Status status;
 
-	//cout << sizeof(buff);
-	if(rank == 0) {
-		// header ?
-	  cout << "P5\n" << n << " " << n << "\n255\n";
+  //cout << sizeof(buff);
+  if(rank == 0) {
+    // header ?
+    cout << "P5\n" << n << " " << n << "\n255\n";
 
-		for(int i = 1; i < size; i++) {
-			MPI_Recv(buff, sizeof(buff), MPI_CHAR, MPI_ANY_SOURCE, tag, MPI_COMM_WORLD, &status);
+    for(int i = 1; i < size; i++) {
+      MPI_Recv(buff, sizeof(buff), MPI_CHAR, MPI_ANY_SOURCE, tag, MPI_COMM_WORLD, &status);
 
-			for (int i = 0; i < sizeof(buff); i++) {
-				cout << buff[i];
-			}
-		}
-	}
-	else {
-		int cont = 0;
+      for (int i = 0; i < sizeof(buff); i++) {
+        cout << buff[i];
+      }
+    }
+  }
+  else {
+    int cont = 0;
 
-	  Vec light = unitise(Vec(-1, -3, 2));
-	  Scene *s(create(level, Vec(0, -1, 0), 1));
+    Vec light = unitise(Vec(-1, -3, 2));
+    Scene *s(create(level, Vec(0, -1, 0), 1));
 
-	  for (int y=n-1; y>=0; --y) 
-	  {
-	    for (int x=0; x<n; ++x) 
-	    {
-	      double g=0;
-	      
-	      for (int dx=0; dx<ss; ++dx)
-	      {
-	        for (int dy=0; dy<ss; ++dy) 
-	        {
-	          Vec dir(unitise(Vec(x+dx*1./ss-n/2., y+dy*1./ss-n/2., n)));
-	          g += ray_trace(light, Ray(Vec(0, 0, -4), dir), *s);
-	        }
-	      }
-	      //cout << char(int(.5 + 255. * g / (ss*ss)));
-	      buff[cont] = char(int(.5 + 255. * g / (ss*ss)));
-	      cont++;
-	    }
-	  }
-	  //buff[cont] = '\0';
-	  delete s;
+    for (int y=n-1; y>=0; --y) 
+    {
+      for (int x=0; x<n; ++x) 
+      {
+        double g=0;
+        
+        for (int dx=0; dx<ss; ++dx)
+        {
+          for (int dy=0; dy<ss; ++dy) 
+          {
+            Vec dir(unitise(Vec(x+dx*1./ss-n/2., y+dy*1./ss-n/2., n)));
+            g += ray_trace(light, Ray(Vec(0, 0, -4), dir), *s);
+          }
+        }
+        //cout << char(int(.5 + 255. * g / (ss*ss)));
+        buff[cont] = char(int(.5 + 255. * g / (ss*ss)));
+        cont++;
+      }
+    }
+    //buff[cont] = '\0';
+    delete s;
 
-		MPI_Send(buff, sizeof(buff), MPI_CHAR, dest, tag, MPI_COMM_WORLD);
-	}
+    MPI_Send(buff, sizeof(buff), MPI_CHAR, dest, tag, MPI_COMM_WORLD);
+  }
 
-	MPI_Finalize();
+  MPI_Finalize();
 
   return 0;
 }
