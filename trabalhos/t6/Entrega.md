@@ -15,6 +15,8 @@ Carga horária: 60h
 
 ##Tempos
 
+![tempo](https://cloud.githubusercontent.com/assets/7422061/16459165/471bffde-3df8-11e6-8644-403bb4700814.png)
+
 | Threads | level 8  | 
 | ------- | ---------|
 | 1       | 16645169 |
@@ -23,7 +25,10 @@ Carga horária: 60h
 | 4       | 10901365 |
 
 
+
 ##Speedup
+
+![speedup](https://cloud.githubusercontent.com/assets/7422061/16459164/4719325e-3df8-11e6-8195-d5ed6d633248.png)
 
 | Threads | level 8  | 
 | ------- | -------- |
@@ -33,7 +38,10 @@ Carga horária: 60h
 | 4       | 1,526    |
 
 
+
 ##Eficiência
+
+![eficiencia](https://cloud.githubusercontent.com/assets/7422061/16459163/470eebb4-3df8-11e6-8f56-2325cf71b2bc.png)
 
 | Threads | level 8  |
 | ------- | -------- |
@@ -41,6 +49,6 @@ Carga horária: 60h
 | 2       | 46,55%   |
 | 3       | 40,83%   |
 | 4       | 38,15%   |
- 
+
 
 ##Referências

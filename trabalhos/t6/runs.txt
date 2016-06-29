@@ -1,0 +1,43 @@
+ mpirun -np 1 ./a.out 8                                                       
+1 thread(s), 16591185 usec
+                                                      
+1 thread(s), 16682890 usec
+                                                     
+1 thread(s), 16610588 usec
+                                                      
+1 thread(s), 16696015 usec
+
+
+ mpirun -np 2 ./a.out 8  
+2 thread(s), 17918918 usec
+                                                     
+2 thread(s), 17716144 usec
+                                                     
+2 thread(s), 17999259 usec
+                                                   
+2 thread(s), 17872867 usec
+
+
+ mpirun -np 3 ./a.out 8                                                       
+3 thread(s), 14611686 usec
+                                                   
+3 thread(s), 14470244 usec
+                                                     
+3 thread(s), 12967693 usec
+                                                      
+3 thread(s), 12294454 usec
+
+
+ mpirun -np 4 ./a.out 8                                                       
+4 thread(s), 11459698 usec
+                                                     
+4 thread(s), 10494082 usec
+                                                     
+4 thread(s), 10732984 usec
+                                                      
+4 thread(s), 10918698 usec
+
+
+
+
+
