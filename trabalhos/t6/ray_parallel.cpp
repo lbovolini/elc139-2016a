@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
 
   long start_time, end_time;
 
-  char buff[n * n];
+  char *buff = NULL;
 
   if (argc == 2) level = atoi(argv[1]);
 
@@ -157,7 +157,7 @@ int main(int argc, char *argv[])
   MPI_Status status;
 
 
-  int buffer_size = sizeof(buff);
+  int buffer_size = n * n;
   // 1 Thread
   int block_size = buffer_size;
 
@@ -177,34 +177,44 @@ int main(int argc, char *argv[])
       remainder = n % (size - 1);
     }
 
+    // Aloca buffer
+    buff = (char*)malloc(buffer_size * sizeof(char));
+
     if(remainder) {
       worker(buff, level, n, ss, n - remainder, n, buffer_size - (remainder * n));
     }
 
     // Header
-    //cout << "P5\n" << n << " " << n << "\n255\n";
+    cout << "P5\n" << n << " " << n << "\n255\n";
 
     for(int i = 1; i < size; i++) {
       MPI_Recv(&buff[((i - 1) * block_size)], block_size, MPI_CHAR, size - i, tag, MPI_COMM_WORLD, &status);
     }
-    /*for (int i = 0; i < buffer_size; i++) {
+    for (int i = 0; i < buffer_size; i++) {
       cout << buff[i];
-    }*/
+    }
+    free(buff);
+    buff = NULL;
+
     end_time = wtime();
 
-    printf("%d thread(s), %ld usec\n", size, (long) (end_time - start_time));
+    //printf("%d thread(s), %ld usec\n", size, (long) (end_time - start_time));
   }
   else {
-
-    char block_buffer[block_size];
 
     int wsize = n / (size - 1);
     int start = (rank - 1) * wsize;
     int end = start + wsize;
 
-    worker(block_buffer, level, n, ss, start, end, 0);
+    // Aloca block buffer
+    buff = (char*)malloc(block_size * sizeof(char));
 
-    MPI_Send(block_buffer, block_size, MPI_CHAR, dest, tag, MPI_COMM_WORLD);
+    worker(buff, level, n, ss, start, end, 0);
+
+    MPI_Send(buff, block_size, MPI_CHAR, dest, tag, MPI_COMM_WORLD);
+
+    free(buff);
+    buff = NULL;
   }
 
   MPI_Finalize();
