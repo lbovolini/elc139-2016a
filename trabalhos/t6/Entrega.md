@@ -10,7 +10,7 @@ Professora: [Andrea Schwertner Charão](http://www.inf.ufsm.br/~andrea)
 Carga horária: 60h
 
 ## Ray-tracer paralelo com MPI
-[ray_parallel.cpp](ray_parallel)
+[ray_parallel](ray_parallel.cpp)
 
 ## Particionamento e Aglomeração
 
