@@ -70,7 +70,11 @@ int wsize = n / (size - 1);
 int start = (rank - 1) * wsize;
 int end = start + wsize;
 
-worker(block_buffer, level, n, ss, start, end, 0);
+// Aloca block buffer
+buff = (char*)malloc(block_size * sizeof(char));
+
+worker(buff, level, n, ss, start, end, 0);
+
 
 wsize = trabalho de cada thread ou processador
 start = altura inicial
@@ -95,7 +99,7 @@ for(int i = 1; i < size; i++) {
 // Não-mestre
 ...
 
-MPI_Send(block_buffer, block_size, MPI_CHAR, dest, tag, MPI_COMM_WORLD);
+MPI_Send(buff, block_size, MPI_CHAR, dest, tag, MPI_COMM_WORLD);
 ...
 ```
 
